@@ -1,7 +1,7 @@
 package xinxing.model;
 
 public class lilunkejiaoxue {
-    private double njhxs;
+    private double YearTime;
     private  double K0;
     private  double K1;
     private  double C;
@@ -15,9 +15,9 @@ public class lilunkejiaoxue {
     private double D2;
     private double D3;
 
-    public double getNjhxs() { return njhxs; }
+    public double getNjhxs() { return YearTime; }
     public void setNjhxs(double njhxs) {
-        this.njhxs = njhxs;
+        this.YearTime = YearTime;
     }
     public double getK0() { return K0; }
     public void setK0(double K0) { this.K0 = K0; }
