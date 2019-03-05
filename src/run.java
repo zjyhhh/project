@@ -1,4 +1,4 @@
-import xinxing.business.DBHelper;
+import servlet.data.DBHelper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

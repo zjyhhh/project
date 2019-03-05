@@ -13,7 +13,7 @@
     <description></description>
     <display-name>StudentsInq</display-name>
     <servlet-name>StudentsInq</servlet-name>
-    <servlet-class>xinxing.action.student.StudentsInq</servlet-class>
+    <servlet-class>servlet.action.StudentInq</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>StudentsInq</servlet-name>
@@ -24,10 +24,18 @@
     <description></description>
     <display-name>StudentInq</display-name>
     <servlet-name>StudentInq</servlet-name>
-    <servlet-class>xinxing.action.student.StudentInq</servlet-class>
+    <servlet-class>servlet.action.StudentInq</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>StudentInq</servlet-name>
     <url-pattern>/StudentInq</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  <servlet-name>login</servlet-name>
+  <servlet-class>servlet.action.login</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>login</servlet-name>
+  <url-pattern>/servlet/login</url-pattern>
   </servlet-mapping>
 </web-app>

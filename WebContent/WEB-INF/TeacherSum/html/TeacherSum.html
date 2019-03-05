@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>教师教学工作量统计</title>
+    <link rel="stylesheet" href="../css/TeacherSum.css">
+</head>
+<body>
+    <div id="wrap">
+        <div class="head">
+            <h1 class="title">教师教学工作量统计</h1>
+            <a id="exit" href="#">退出</a>
+        </div>
+        <div class="center">
+            <p class="centerHr">请在相应的<strong class="Hrlei">工作量种类</strong>打勾:</p>
+            <ul class="theory">
+                <li>
+                    <div class="TeacheOut">
+                        <img class="imgClick" alt="turnImg" src="../img/login_bg_remember.png">
+                        <img src="../img/login_icon_remember.png" alt="turn" class="ChooseTurn">
+                        <p class="TeacherKinds">理论教学:</p>
+                        <div class="ClassCourse">
+                            <input id="cousrese" type="text" value="你所教课程" readonly="readonly">
+                            <img src="../img/icon_select_more.png" alt="close" id="close">
+                            <img src="../img/icon_select_more_locked.png" alt="open" id="open">
+                            <ul tabindex="1" hidefocus="true" id="CousrseSingle">
+                            </ul>
+                            <div id="CousrseMain">
+                                <div id="ClassHour">
+                                    <span class="HourCousrese">Java EE框架应用开发</span>的计划学时数：
+                                    <span id="Hour"></span>学分
+                                </div>
+                                <div id="ClassSocre">
+                                    <span class="HourCousrese">Java EE框架应用开发</span>的学分：
+                                    <span id="Socre"></span>学分
+                                </div>
+                                <div id="ClassPeople">
+                                    <span class="HourCousrese">Java EE框架应用开发</span>的上课人数：
+                                    <input type="text" id="People" value="" >
+                                </div>
+                                <div id="ClassB">
+                                    <span class="HourCousrese">Java EE框架应用开发</span>的改作业权重系数：
+                                    <div class="ClassBInput">
+                                        <input type="text" id="EnglishB" value="点击选择" readonly="readonly">
+                                        <ul tabindex="1" hidefocus="true" id="ChooseB">
+                                            <li>1</li>
+                                            <li>1.15</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div id="ClassEnglish">
+                                    <span class="HourCousrese">Java EE框架应用开发</span>是否外语授课：
+                                    <div class="EnglishInput">
+                                        <input type="text" id="English" value="点击选择" readonly="readonly">
+                                        <ul tabindex="1" hidefocus="true" id="ChooseEnglish">
+                                            <li>是</li>
+                                            <li>否</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div id="ClassEnglishTrue">
+                                    <span>请选择你的k2系数：</span>
+                                    <input id="EnglishTrue" value="0.2" readonly="readonly">
+                                    <ul tabindex="1" hidefocus="true" id="ChooseEnglishTrue">
+                                        <li>0.2</li>
+                                        <li>0.3</li>
+                                        <li>0.4</li>
+                                        <li>0.5</li>
+                                        <li>0.6</li>
+                                        <li>0.7</li>
+                                        <li>0.8</li>
+                                        <li>1.0</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="twoMain">
+                        <img class="imgClick" alt="turnImg" src="../img/login_bg_remember.png">
+                        <img src="../img/login_icon_remember.png" alt="turn" class="ChooseTurn">
+                        <p class="TeacherKinds">指导课程设计:</p>
+                        <div id="GuideClassPeople">
+                            <span id="GuidName">C语言设计大作业</span>的人数：
+                            <input type="text" id="GuidePeople" value="" >
+                        </div>
+                        <div class="Graduation">
+                            <img class="imgClick" alt="turnImg" src="../img/login_bg_remember.png">
+                            <img src="../img/login_icon_remember.png" alt="turn" class="ChooseTurn">
+                            <p class="TeacherKinds">指导毕业设计:</p>
+                            <div id="GuideGraduationPeople">
+                                <span >指导毕业设计（论文）</span>的人数：
+                                <input type="text" id="GraduationPeople" value="" >
+                            </div>
+                        </div>
+                        <div class="GuidePractice">
+                            <img class="imgClick" alt="turnImg" src="../img/login_bg_remember.png">
+                            <img src="../img/login_icon_remember.png" alt="turn" class="ChooseTurn">
+                            <p class="TeacherKinds">指导各类实习:</p>
+                            <div id="PracticePeople">
+                                <span>指导实习</span>的人数：
+                                <input type="text" id="GradePracticePeople" value="" >
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="GuideExperiment">
+                        <img class="imgClick" alt="turnImg" src="../img/login_bg_remember.png">
+                        <img src="../img/login_icon_remember.png" alt="turn" class="ChooseTurn">
+                        <p class="TeacherKinds">实验课讲授:</p>
+                        <div id="ExperimentOut" >
+                               <span>实验课讲授的改作业权重系数：</span>
+                            <input type="text" id="Experiment" value="点击选择" readonly="readonly">
+                            <ul tabindex="1" hidefocus="true" id="ExperimentB">
+                                <li>1</li>
+                                <li>1.15</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="GuideInnovation">
+                        <img class="imgClick" alt="turnImg" src="../img/login_bg_remember.png">
+                        <img src="../img/login_icon_remember.png" alt="turn" class="ChooseTurn">
+                        <p class="TeacherKinds">实验课讲授:</p>
+                        <div id="InnovationPeople">
+                            <span>指导实习</span>的人数：
+                            <input type="text" id="GradeInnovationPeople" value="" >
+                        </div>
+                    </div>
+                </li>
+        </ul>
+        <div class="SumValue">
+            <span id="submit">提交</span>
+            <span class="SumName">总计：</span>
+            <span id="Sum">415</span>
+        </div>
+    </div>
+    <script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="../js/TeacherSum.js"></script>
+</body>
+</html>
