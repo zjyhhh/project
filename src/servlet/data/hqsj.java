@@ -29,11 +29,11 @@ public class hqsj {
             DBHelper db = new DBHelper(sql);
             ResultSet ret = db.pst.executeQuery();
             while (ret.next()) {
-                double Njhxs=0,K0=0,K1=0,C=0,E=0,Njhxf=0,Rs=0,D1=0;
-                String MC;
+                double AnnualSchoolingHours=0,K0=0,K1=0,C=0,E=0,AnnualProgramCredit=0,Classattendance=0,D1=0;
+                String Subjectname;
 
 
-                //Njhxs
+                //AnnualSchoolingHours
                 String sql8 = "select * from jskcb where XKKH=" +"'"+ret.getString(1)+"'";
                 DBHelper db8 = new DBHelper(sql8);
                 ResultSet ret8 = db8.pst.executeQuery();
@@ -42,11 +42,11 @@ public class hqsj {
                 String[] syqzzArray = syqzz.split(",");
                 for (int i = 0; i < syqzzArray.length; i++) {
                     String[] syqzzArray2 = syqzzArray[i].split("-");
-                    Njhxs +=Integer.parseInt(syqzzArray2[1])-Integer.parseInt(syqzzArray2[0])+1;
+                    AnnualSchoolingHours +=Integer.parseInt(syqzzArray2[1])-Integer.parseInt(syqzzArray2[0])+1;
                 }
                 String syzxs = ret8.getString(8);
                 String[] syzxsArray = syzxs.split("-");
-                Njhxs *= Double.parseDouble(syzxsArray[1]);
+                AnnualSchoolingHours *= Double.parseDouble(syzxsArray[1]);
                 ret8.close();
                 db8.close();
 
@@ -87,12 +87,12 @@ public class hqsj {
                 ret4.close();
                 db4.close();
 
-                //E//Rs
+                //E//Classattendance
                 String sql5="select SUM(RS) from jskcb where XKKH=" +"'"+ret.getString(1)+"'";
                 DBHelper db5 = new DBHelper(sql5);
                 ResultSet ret5 = db5.pst.executeQuery();
                 ret5.next();
-                Rs=ret5.getInt(1);
+                Classattendance=ret5.getInt(1);
                 if(ret5.getInt(1)<21)
                     E=1;
                 else if(ret5.getInt(1)<41)
@@ -108,21 +108,21 @@ public class hqsj {
                 ret5.close();
                 db5.close();
 
-                //MC
+                //Subjectname
                 String sql6="select KCMC from jxrwb where KCDM =" + xkkhArray[3];
                 DBHelper db6 = new DBHelper(sql6);
                 ResultSet ret6 = db6.pst.executeQuery();
                 ret6.next();
-                MC=ret6.getString(1);
+                Subjectname=ret6.getString(1);
                 ret6.close();
                 db6.close();
 
-                //Njhxf
+                //AnnualProgramCredit
                 String sql7="select XF from jxrwb where KCDM =" + xkkhArray[3];
                 DBHelper db7 = new DBHelper(sql7);
                 ResultSet ret7 = db7.pst.executeQuery();
                 ret7.next();
-                Njhxf=Double.parseDouble(ret7.getString(1));
+                AnnualProgramCredit=Double.parseDouble(ret7.getString(1));
                 ret7.close();
                 db7.close();
 
@@ -130,14 +130,14 @@ public class hqsj {
 
 
                 lilunkejiaoxue li=new lilunkejiaoxue();
-                li.setNjhxs(Njhxs);
+                li.setAnnualSchoolingHours(AnnualSchoolingHours);
                 li.setK0(K0);
                 li.setK1(K1);
                 li.setC(C);
                 li.setE(E);
-                li.setMC(MC);
-                li.setNjhxf(Njhxf);
-                li.setRs(Rs);
+                li.setSubjectname(Subjectname);
+                li.setAnnualProgramCredit(AnnualProgramCredit);
+                li.setClassattendance(Classattendance);
                 li.setD1(D1);
                 list.add(li);
                 //

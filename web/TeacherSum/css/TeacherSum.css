@@ -39,7 +39,7 @@ input,button,select,a {
 }
 .click-input{
     color:#67b9f7!important;
-    background: url(../img/icon_select_more_locked.png) no-repeat!important;
+    background: url(/TeacherSum/img/icon_select_more_locked.png) no-repeat!important;
 }
 
 
@@ -81,7 +81,7 @@ body{
     font-size: 24px;
     color: #fff;
     text-indent: 30px;
-    background: url(../img/icon_logout.png) no-repeat left center;
+    background: url(/TeacherSum/img/icon_logout.png) no-repeat left center;
     /* border: 1px solid red; */
 }
 .center{

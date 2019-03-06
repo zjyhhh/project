@@ -1,23 +1,23 @@
 package servlet.model;
 
 public class lilunkejiaoxue {
-    private double YearTime;
+    private double AnnualSchoolingHours;
     private  double K0;
     private  double K1;
     private  double C;
     private  double E;
     private  double F;
     private  double G;
-    private  String MC;
-    private double njhxf;
-    private double Rs;
+    private  String Subjectname;
+    private double AnnualProgramCredit;
+    private double Classattendance;
     private double D1;
     private double D2;
     private double D3;
 
-    public double getNjhxs() { return YearTime; }
-    public void setNjhxs(double njhxs) {
-        this.YearTime = YearTime;
+    public double getAnnualSchoolingHours() { return AnnualSchoolingHours; }
+    public void setAnnualSchoolingHours(double AnnualSchoolingHours) {
+        this.AnnualSchoolingHours =AnnualSchoolingHours;
     }
     public double getK0() { return K0; }
     public void setK0(double K0) { this.K0 = K0; }
@@ -39,17 +39,17 @@ public class lilunkejiaoxue {
     public void setG(double G) {
         this.G = G;
     }
-    public String getMC() { return MC; }
-    public void setMC(String MC) {
-        this.MC = MC;
+    public String getSubjectname() { return Subjectname; }
+    public void setSubjectname(String Subjectname) {
+        this.Subjectname =Subjectname;
     }
-    public double getNjhxf() { return njhxf; }
-    public void setNjhxf(double njhxf) {
-        this.njhxf = njhxf;
+    public double getAnnualProgramCredit() { return AnnualProgramCredit; }
+    public void setAnnualProgramCredit(double AnnualProgramCredit) {
+        this.AnnualProgramCredit =AnnualProgramCredit;
     }
-    public double getRs() { return Rs; }
-    public void setRs(double Rs) {
-        this.Rs = Rs;
+    public double getClassattendance() { return Classattendance; }
+    public void setClassattendance(double Classattendance) {
+        this.Classattendance =Classattendance;
     }
     public double getD1() { return D1; }
     public void setD1(double D1) { this.D1 = D1; }

@@ -39,7 +39,7 @@ input,button,select,a {
 }
 .click-input{
     color:#67b9f7!important;
-    background: url(../img/icon_select_more_locked.png) no-repeat!important;
+    background: url(/TeacherSum/img/icon_select_more_locked.png) no-repeat!important;
 }
 
 
