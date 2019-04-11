@@ -26,7 +26,8 @@ public class hqsj {
 		DBHelper db1 = new DBHelper(sql);*/
 
         try {
-            String sql = "select DISTINCT XKKH from jskcb";/* where JSZGH="+TeacherNum;*/
+            String sql = "select DISTINCT XKKH from jskcb where JSZGH="+"'"+ TeacherNum+"'";
+            System.out.println(sql);
             DBHelper db = new DBHelper(sql);
             ResultSet ret = db.pst.executeQuery();
             while (ret.next()) {
