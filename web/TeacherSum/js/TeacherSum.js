@@ -492,7 +492,8 @@
             cache:false,               //是否缓存
             dataType:'json',           //返回值类型
             data:{                     //传给后端的数据
-               'TeacherNum':2017012
+               'TeacherNum':20017012
+              // 'term':"2016-2017-2"
             },
             success:function(getClassResult){
                 //成功时

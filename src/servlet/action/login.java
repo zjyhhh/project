@@ -15,9 +15,7 @@ import java.sql.SQLException;
 @WebServlet(name = "login")
 public class login extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("跳转成功");
         String data = request.getParameter("TeacherNumberValue");
-        System.out.println(data);
         int key = 0;
         //
         try {
@@ -41,14 +39,13 @@ public class login extends HttpServlet {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        System.out.println(key);
         if(key == 1)
         {
            // request.getRequestDispatcher("/TeacherSum/html/TeacherSum.html").forward(request,response);
             return;
         }
         else{
-             //request.getRequestDispatcher("/TeacherSum/html/TeacherSum.html").forward(request,response);
+             request.getRequestDispatcher("/TeacherSum/html/TeacherSum.html").forward(request,response);
         }
     }
 

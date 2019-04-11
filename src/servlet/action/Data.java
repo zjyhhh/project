@@ -17,13 +17,13 @@ import java.util.List;
 /**
  * Servlet implementation class StudentInq
  */
-public class StudentInq extends HttpServlet {
+public class Data extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public StudentInq() {
+    public Data() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,7 +33,9 @@ public class StudentInq extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		List<lilunkejiaoxue> list = hqsj.getAlllilunkejiaoxue();
+		String teachernum = request.getParameter("TeacherNum");
+		//String xueq = request.getParameter("term");
+		List<lilunkejiaoxue> list = hqsj.getAlllilunkejiaoxue(teachernum);
 		ListObject listObject=new ListObject();
 		listObject.setItems(list);
 		listObject.setStatusObject(StatusHouse.COMMON_STATUS_OK);

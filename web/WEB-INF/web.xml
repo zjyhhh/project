@@ -11,24 +11,13 @@
   </welcome-file-list>
   <servlet>
     <description></description>
-    <display-name>StudentsInq</display-name>
-    <servlet-name>StudentsInq</servlet-name>
-    <servlet-class>servlet.action.StudentInq</servlet-class>
+    <display-name>Data</display-name>
+    <servlet-name>Data</servlet-name>
+    <servlet-class>servlet.action.Data</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>StudentsInq</servlet-name>
-    <url-pattern>/api/StudentsInq</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-    <description></description>
-    <display-name>StudentInq</display-name>
-    <servlet-name>StudentInq</servlet-name>
-    <servlet-class>servlet.action.StudentInq</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>StudentInq</servlet-name>
-    <url-pattern>/StudentInq</url-pattern>
+    <servlet-name>Data</servlet-name>
+    <url-pattern>/api/Data</url-pattern>
   </servlet-mapping>
   <servlet>
   <servlet-name>login</servlet-name>
@@ -37,5 +26,13 @@
   <servlet-mapping>
   <servlet-name>login</servlet-name>
   <url-pattern>/servlet/login</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>term</servlet-name>
+    <servlet-class>servlet.action.term</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>term</servlet-name>
+    <url-pattern>/servlet/term</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -15,7 +15,7 @@ public class hqsj {
      *
      * @return
      */
-    public static List<lilunkejiaoxue> getAlllilunkejiaoxue() {
+    public static List<lilunkejiaoxue> getAlllilunkejiaoxue(String TeacherNum) {
         List<lilunkejiaoxue> list = new ArrayList<lilunkejiaoxue>();
 		/*String sql = null;
 		DBHelper db1 = null;
@@ -24,34 +24,18 @@ public class hqsj {
 		ResultSet ret = null;
 		String sql="select * from jskcb";
 		DBHelper db1 = new DBHelper(sql);*/
+
         try {
-            String sql = "select DISTINCT XKKH from jskcb";
+            String sql = "select DISTINCT XKKH from jskcb";/* where JSZGH="+TeacherNum;*/
             DBHelper db = new DBHelper(sql);
             ResultSet ret = db.pst.executeQuery();
             while (ret.next()) {
-                double AnnualSchoolingHours=0,K0=0,K1=0,C=0,E=0,AnnualProgramCredit=0,Classattendance=0,D1=0;
+                double AnnualSchoolingHours=0,K0=0,people=0,K1=0,C=0,E=0,AnnualProgramCredit=0,AnnualProgramCredit2=0,Classattendance=0,D1=0,panduan=100;
                 String Subjectname;
+                StringBuffer Term2=new StringBuffer();
 
 
-                //AnnualSchoolingHours
-                String sql8 = "select * from jskcb where XKKH=" +"'"+ret.getString(1)+"'";
-                DBHelper db8 = new DBHelper(sql8);
-                ResultSet ret8 = db8.pst.executeQuery();
-                ret8.next();
-                String syqzz = ret8.getString(9);
-                String[] syqzzArray = syqzz.split(",");
-                for (int i = 0; i < syqzzArray.length; i++) {
-                    String[] syqzzArray2 = syqzzArray[i].split("-");
-                    AnnualSchoolingHours +=Integer.parseInt(syqzzArray2[1])-Integer.parseInt(syqzzArray2[0])+1;
-                }
-                String syzxs = ret8.getString(8);
-                String[] syzxsArray = syzxs.split("-");
-                AnnualSchoolingHours *= Double.parseDouble(syzxsArray[1]);
-                ret8.close();
-                db8.close();
-
-
-                //K0
+                //K0//term2
                 String xkkh=ret.getString(1);
                 String[] xkkhArray = xkkh.split("-");
                 String sql2="select KCLB from jxrwb where KCDM =" + xkkhArray[3];
@@ -62,19 +46,50 @@ public class hqsj {
                     K0=1.1;
                 else
                     K0=1.0;
+                String[] TermArray = xkkh.split("()");
+                for(int i = 1;i<12;i++){
+                    Term2.append(TermArray[i]);
+                }
                 ret2.close();
                 db2.close();
 
+                //AnnualSchoolingHours
+                String sql8="select XF from jxrwb where KCDM =" + xkkhArray[3];
+                DBHelper db8 = new DBHelper(sql8);
+                ResultSet ret8 = db8.pst.executeQuery();
+                ret8.next();
+                AnnualSchoolingHours=Double.parseDouble(ret8.getString(1))*16;
+                ret8.close();
+                db8.close();
 
-                //K1
-                String sql3="select AVG(RS) from jskcb where XKKH=" +"'"+ret.getString(1)+"'";
+
+                //K1//people
+                int zzz=0;
+                String sql3="select sum(RS) from jskcb where XKKH=" +"'"+ret.getString(1)+"'";
                 DBHelper db3 = new DBHelper(sql3);
                 ResultSet ret3 = db3.pst.executeQuery();
+                String sql13="select RS from jskcb where XKKH=" +"'"+ret.getString(1)+"'";
+                DBHelper db13 = new DBHelper(sql13);
+                ResultSet ret13 = db13.pst.executeQuery();
+                while (ret13.next())
+                {
+                    zzz++;
+                }
+                ret13.close();
+                db13.close();
                 ret3.next();
-                if(ret3.getInt(1)<51)
+                if(zzz>1)
+                {
+                    if(ret3.getInt(1)<101)
+                        K1=1.0;
+                    else
+                        K1=1.0+ret3.getInt(1)*0.004-100*0.004;
+                }
+                else if(ret3.getInt(1)<51)
                     K1=1.0;
                 else
                     K1=1.0+ret3.getInt(1)*0.004-50*0.004;
+                people=ret3.getInt(1);
                 ret3.close();
                 db3.close();
 
@@ -117,6 +132,15 @@ public class hqsj {
                 ret6.close();
                 db6.close();
 
+                String sql10="select FHKMMC from jxrwb where KCDM =" + xkkhArray[3];
+                DBHelper db10 = new DBHelper(sql10);
+                ResultSet ret10 = db10.pst.executeQuery();
+                ret10.next();
+                panduan=ret10.getInt(1);
+                ret10.close();
+                db10.close();
+
+
                 //AnnualProgramCredit
                 String sql7="select XF from jxrwb where KCDM =" + xkkhArray[3];
                 DBHelper db7 = new DBHelper(sql7);
@@ -125,6 +149,16 @@ public class hqsj {
                 AnnualProgramCredit=Double.parseDouble(ret7.getString(1));
                 ret7.close();
                 db7.close();
+
+
+                //AnnualProgramCredit2
+                String sql9="select XF from jxrwb where KCDM =" + xkkhArray[3];
+                DBHelper db9 = new DBHelper(sql9);
+                ResultSet ret9 = db9.pst.executeQuery();
+                ret9.next();
+                AnnualProgramCredit2=Double.parseDouble(ret9.getString(1));
+                ret9.close();
+                db9.close();
 
                 //D1
 
@@ -135,11 +169,21 @@ public class hqsj {
                 li.setK1(K1);
                 li.setC(C);
                 li.setE(E);
+                li.setTerm2(Term2.toString());
+                li.setpanduan(panduan);
                 li.setSubjectname(Subjectname);
                 li.setAnnualProgramCredit(AnnualProgramCredit);
+                li.setAnnualProgramCredit2(AnnualProgramCredit2);
+                li.setPeople(people);
                 li.setClassattendance(Classattendance);
-                li.setD1(D1);
-                list.add(li);
+                //li.setD1(D1);
+                String xueq = "2016-2017-2";
+                System.out.println(li.getTerm2());
+                if(li.getTerm2().contains(xueq)) {
+                    System.out.println("查询成功");
+                   list.add(li);
+                }
+                //list.add(li);
                 //
             }
             ret.close();
