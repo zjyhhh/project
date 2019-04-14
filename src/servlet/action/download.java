@@ -34,8 +34,8 @@ public class download extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //获取表单数据
-         String data =request.getParameter("data");
-         System.out.println(data);
+         //String data =request.getParameter("array");
+         System.out.println("data");
         String filename ="test"+".xls";
         //生成Excel表
         WritableWorkbook writableWorkbook = Workbook.createWorkbook(new File("/Volumes/data/IdeaProject/downloadtest/web/download/"+filename));
@@ -109,6 +109,7 @@ public class download extends HttpServlet {
 
         in.close();
         out.close();
+        return;
     }
 
 }

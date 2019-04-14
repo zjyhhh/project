@@ -11,7 +11,6 @@
   </welcome-file-list>
   <servlet>
     <description></description>
-    <display-name>Data</display-name>
     <servlet-name>Data</servlet-name>
     <servlet-class>servlet.action.Data</servlet-class>
   </servlet>

@@ -15,7 +15,7 @@ public class hqsj {
      *
      * @return
      */
-    public static List<lilunkejiaoxue> getAlllilunkejiaoxue(String TeacherNum) {
+    public static List<lilunkejiaoxue> getAlllilunkejiaoxue(String TeacherNum,String xueq) {
         List<lilunkejiaoxue> list = new ArrayList<lilunkejiaoxue>();
 		/*String sql = null;
 		DBHelper db1 = null;
@@ -178,7 +178,7 @@ public class hqsj {
                 li.setPeople(people);
                 li.setClassattendance(Classattendance);
                 //li.setD1(D1);
-                String xueq = "2016-2017-2";
+                //String xueq = "2016-2017-2";
                 System.out.println(li.getTerm2());
                 if(li.getTerm2().contains(xueq)) {
                     System.out.println("查询成功");
