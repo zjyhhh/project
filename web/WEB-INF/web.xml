@@ -35,4 +35,12 @@
     <servlet-name>term</servlet-name>
     <url-pattern>/servlet/term</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>download</servlet-name>
+    <servlet-class>servlet.action.download</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>download</servlet-name>
+    <url-pattern>/servlet/download</url-pattern>
+  </servlet-mapping>
 </web-app>
