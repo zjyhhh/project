@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
@@ -33,10 +34,13 @@ public class Data extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String teachernum = request.getParameter("TeacherNumberValue");
+		HttpSession httpSession = request.getSession();
+		String teacherNum = httpSession.getAttribute("TeacherNum").toString();
+		//System.out.println(teacherNum);
+		//String teachernum = request.getParameter("TeacherNum");
 		String xueq = request.getParameter("ChooseSemesterData");
-		System.out.println(teachernum);
-		List<lilunkejiaoxue> list = hqsj.getAlllilunkejiaoxue(teachernum,xueq);
+		//System.out.println(teachernum);
+		List<lilunkejiaoxue> list = hqsj.getAlllilunkejiaoxue(teacherNum,xueq);
 		ListObject listObject=new ListObject();
 		listObject.setItems(list);
 		listObject.setStatusObject(StatusHouse.COMMON_STATUS_OK);

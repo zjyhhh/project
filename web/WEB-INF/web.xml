@@ -35,6 +35,14 @@
     <url-pattern>/servlet/term</url-pattern>
   </servlet-mapping>
   <servlet>
+  <servlet-name>buildExcel</servlet-name>
+  <servlet-class>servlet.action.buildExcel</servlet-class>
+</servlet>
+  <servlet-mapping>
+    <servlet-name>buildExcel</servlet-name>
+    <url-pattern>/servlet/buildExcel</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>download</servlet-name>
     <servlet-class>servlet.action.download</servlet-class>
   </servlet>

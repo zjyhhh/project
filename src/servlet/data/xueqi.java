@@ -6,11 +6,11 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 public class xueqi {
-    public static List<xq> getAlLterm() {
+    public static List<xq> getAlLterm(String teacherNum) {
         List<xq> list = new ArrayList<xq>();
         try {
             ArrayList<String> strArray = new ArrayList<String> ();
-            String sql = "select XKKH from jskcb ";
+            String sql = "select XKKH from jskcb where JSZGH="+"'"+ teacherNum+"'";
             DBHelper db = new DBHelper(sql);
             ResultSet ret = db.pst.executeQuery();
             while (ret.next()) {

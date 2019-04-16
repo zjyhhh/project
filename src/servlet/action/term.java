@@ -12,13 +12,17 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
 @WebServlet(name = "term")
 public class term extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<xq> list = xueqi.getAlLterm();
+        HttpSession httpSession = request.getSession();
+        String teacherNum = httpSession.getAttribute("TeacherNum").toString();
+       // System.out.println(teacherNum);
+        List<xq> list = xueqi.getAlLterm(teacherNum);
         ListObject listObject=new ListObject();
         listObject.setItems(list);
         listObject.setStatusObject(StatusHouse.COMMON_STATUS_OK);

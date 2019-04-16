@@ -27,7 +27,7 @@ public class hqsj {
 
         try {
             String sql = "select DISTINCT XKKH from jskcb where JSZGH="+"'"+ TeacherNum+"'";
-            System.out.println(sql);
+           // System.out.println(sql);
             DBHelper db = new DBHelper(sql);
             ResultSet ret = db.pst.executeQuery();
             while (ret.next()) {
@@ -179,7 +179,6 @@ public class hqsj {
                 li.setClassattendance(Classattendance);
                 //li.setD1(D1);
                 //String xueq = "2016-2017-2";
-                System.out.println(li.getTerm2());
                 if(li.getTerm2().contains(xueq)) {
                     System.out.println("查询成功");
                    list.add(li);
