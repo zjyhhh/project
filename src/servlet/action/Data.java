@@ -33,7 +33,7 @@ public class Data extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String teachernum = request.getParameter("TeacherNum");
+		String teachernum = request.getParameter("TeacherNumberValue");
 		String xueq = request.getParameter("ChooseSemesterData");
 		System.out.println(teachernum);
 		List<lilunkejiaoxue> list = hqsj.getAlllilunkejiaoxue(teachernum,xueq);

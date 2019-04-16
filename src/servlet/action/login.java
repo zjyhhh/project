@@ -1,5 +1,6 @@
 package servlet.action;
 
+import org.omg.Messaging.SYNC_WITH_TRANSPORT;
 import servlet.data.DBHelper;
 
 import javax.servlet.ServletException;
@@ -42,10 +43,10 @@ public class login extends HttpServlet {
         if(key == 1)
         {
            // request.getRequestDispatcher("/TeacherSum/html/TeacherSum.html").forward(request,response);
-            return;
+            request.getRequestDispatcher("/TeacherSum/html/TeacherSum.html").forward(request,response);
         }
         else{
-             request.getRequestDispatcher("/TeacherSum/html/TeacherSum.html").forward(request,response);
+            request.getRequestDispatcher("/TeacherSum/html/TeacherNumber.html").forward(request,response);
         }
     }
 
