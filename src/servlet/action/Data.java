@@ -36,8 +36,8 @@ public class Data extends HttpServlet {
 		// TODO Auto-generated method stub
 		HttpSession httpSession = request.getSession();
 		String teacherNum = httpSession.getAttribute("TeacherNum").toString();
-		//System.out.println(teacherNum);
-		//String teachernum = request.getParameter("TeacherNum");
+		System.out.println(teacherNum);
+		String teachernum = request.getParameter("TeacherNum");
 		String xueq = request.getParameter("ChooseSemesterData");
 		//System.out.println(teachernum);
 		List<lilunkejiaoxue> list = hqsj.getAlllilunkejiaoxue(teacherNum,xueq);

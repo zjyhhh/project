@@ -1,26 +1,32 @@
 package servlet.model;
 
 public class lilunkejiaoxue {
-    private  double AnnualSchoolingHours;
+    private  double AnnualSchoolingHours;//学时
     private  double K0;
     private  double K1;
     private  double C;
     private  double E;
     private  double F;
     //private  double G;
-    private  String Subjectname;
-    private  double AnnualProgramCredit;
+    private  String Subjectname;//课程名称
+    private  double AnnualProgramCredit;//学分
     private  double AnnualProgramCredit2;
-    private  double Classattendance;
+    private  double Classattendance;//人数（大作业）
     private  double panduan;
-    private  double people;
+    private  double people;//人数
     //private  double D1;
     //private  double D2;
     //private  double D3;
-    private String term2;
+    private String term2;//年份
+    private String classname;//班级名称
+    private String classnumber;//班级代号
 
+    public String getclassnumber() { return classnumber; }
+    public void setclassnumber(String classnumber) { this.classnumber = classnumber; }
     public String getTerm2() { return term2; }
     public void setTerm2(String term2) { this.term2 = term2; }
+    public String getclassname() { return classname; }
+    public void setclassname(String classname) { this.classname = classname; }
     public double getAnnualSchoolingHours() { return AnnualSchoolingHours; }
     public void setAnnualSchoolingHours(double AnnualSchoolingHours) {
         this.AnnualSchoolingHours =AnnualSchoolingHours;
