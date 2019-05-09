@@ -10,9 +10,17 @@ public class xueqi {
         List<xq> list = new ArrayList<xq>();
         try {
             ArrayList<String> strArray = new ArrayList<String> ();
-            String sql = "select XKKH from jskcb where JSZGH="+"'"+ teacherNum+"'";
+            String sql = "select DISTINCT XKKH from jskcb where JSZGH="+"'"+ teacherNum+"'";
             DBHelper db = new DBHelper(sql);
             ResultSet ret = db.pst.executeQuery();
+            String teachername;
+            String sql2 = "select DISTINCT JSXM from jskcb where JSZGH="+"'"+ teacherNum+"'";
+            DBHelper db2 = new DBHelper(sql2);
+            ResultSet ret2 = db2.pst.executeQuery();
+            ret2.next();
+            teachername=ret2.getString(1);
+            ret2.close();
+            db2.close();
             while (ret.next()) {
                 StringBuffer Term=new StringBuffer();
                 String Term1=ret.getString(1);
@@ -21,6 +29,9 @@ public class xueqi {
                     Term.append(TermArray[i]);
                     }
                 xq term = new  xq();
+
+                term.setTeacherNum(teacherNum);
+                term.setteacherName(teachername);
                 if(!strArray.contains(Term.toString())){
                     strArray.add(Term.toString());
                     term.setTerm(Term.toString());

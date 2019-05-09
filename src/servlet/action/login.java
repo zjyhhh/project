@@ -1,28 +1,26 @@
 package servlet.action;
 
-import org.omg.Messaging.SYNC_WITH_TRANSPORT;
 import servlet.data.DBHelper;
 import servlet.json.responseUtils.ResponseUtils;
+import servlet.json.utils.JackJsonUtils;
+import servlet.model.yesOrNot;
 
-import javax.servlet.Servlet;
-import javax.servlet.Servlet.*;
 import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 
 @WebServlet(name = "login")
 public class login extends HttpServlet{
     protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
         String data = request.getParameter("TeacherNumberValue");
+       //String data="2017012";
         int key = 0;
         //
         try {
@@ -51,10 +49,18 @@ public class login extends HttpServlet{
            // request.getRequestDispatcher("/TeacherSum/html/TeacherSum.html").forward(request,response);
             HttpSession session = request.getSession();
             session.setAttribute("TeacherNum",data);
+            yesOrNot test = new yesOrNot();
+            test.setData("yes");
+            String responseText = JackJsonUtils.toJson(test);
+            ResponseUtils.renderJson(response, responseText);
             return;
         }
         else{
-            request.getRequestDispatcher("/TeacherSum/html/TeacherNumber.html").forward(request,response);
+            yesOrNot test = new yesOrNot();
+            test.setData("no");
+            String responseText = JackJsonUtils.toJson(test);
+            ResponseUtils.renderJson(response, responseText);
+            return;
         }
     }
 

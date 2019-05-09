@@ -148,7 +148,7 @@ public class hqsj {
                 DBHelper db6 = new DBHelper(sql6);
                 ResultSet ret6 = db6.pst.executeQuery();
                 ret6.next();
-                Subjectname=ret6.getString(1);
+                Subjectname=ret6.getString(1)+xkkhArray[5];
                 ret6.close();
                 db6.close();
 

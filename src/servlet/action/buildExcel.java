@@ -52,22 +52,24 @@ public class buildExcel extends HttpServlet {
         WritableSheet writableSheet = writableWorkbook.createSheet("这是页数", 0);
         //设置第一列的长度
         writableSheet.setColumnView(0, 30);
-        writableSheet.setColumnView(1, 10);
+        writableSheet.setColumnView(1, 43);
         writableSheet.setColumnView(2, 10);
         writableSheet.setColumnView(3, 10);
         try {
             double sum=0;
             //生成表头
-            Label h1 = new Label(0, 0, "课程名称");
-            Label h2 = new Label(1, 0, "年计划学时");
-            Label h3 = new Label(2, 0, "年计划学分");
-            Label h4 = new Label(3, 0, "学生人数");
-            Label h5 = new Label(4, 0, "k0");
-            Label h6 = new Label(5, 0, "k1");
-            Label h7 = new Label(6, 0, "k2");
-            Label h8 = new Label(7, 0, "B");
-            Label h9 = new Label(8, 0, "C");
-            Label h10 = new Label(9, 0, "小计");
+            Label h0 = new Label(0, 0, "课程名称");
+            Label h1 = new Label(1, 0, "班级");
+            Label h2 = new Label(2, 0, "年计划学时");
+            Label h3 = new Label(3, 0, "年计划学分");
+            Label h4 = new Label(4, 0, "学生人数");
+            Label h5 = new Label(5, 0, "k0");
+            Label h6 = new Label(6, 0, "k1");
+            Label h7 = new Label(7, 0, "k2");
+            Label h8 = new Label(8, 0, "B");
+            Label h9 = new Label(9, 0, "C");
+            Label h10 = new Label(10, 0, "小计");
+            writableSheet.addCell(h0);
             writableSheet.addCell(h1);
             writableSheet.addCell(h2);
             writableSheet.addCell(h3);
@@ -92,7 +94,8 @@ public class buildExcel extends HttpServlet {
                 Label label8 = new Label(7, num + 1, oneline[7]);
                 Label label9 = new Label(8, num + 1, oneline[8]);
                 Label label10 = new Label(9, num + 1, oneline[9]);
-                sum += Double.parseDouble(oneline[9]);
+                Label label11 = new Label(10, num + 1, oneline[10]);
+                sum += Double.parseDouble(oneline[10]);
                 writableSheet.addCell(label1);
                 writableSheet.addCell(label2);
                 writableSheet.addCell(label3);
@@ -103,9 +106,10 @@ public class buildExcel extends HttpServlet {
                 writableSheet.addCell(label8);
                 writableSheet.addCell(label9);
                 writableSheet.addCell(label10);
+                writableSheet.addCell(label11);
             }
-            Label totalname = new Label(8,linedata.length+1,"总计");
-            Label totaldata = new Label(9,linedata.length+1,String.valueOf(sum));
+            Label totalname = new Label(9,linedata.length+1,"总计");
+            Label totaldata = new Label(10,linedata.length+1,String.valueOf(sum));
             writableSheet.addCell(totaldata);
             writableSheet.addCell(totalname);
             writableWorkbook.write();
