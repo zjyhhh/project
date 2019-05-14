@@ -10,10 +10,20 @@
 </head>
 <body>
 <div class="main">
-	<h2 class="Hello">Hello,老师您好！</h2>
-	<span>请输入你的工号：</span>
-	<input type="text" id="TeacherNumber" value="" >
-	<button id="Go">Go</button>
+	<div class="left">
+		<img src="TeacherSum/img/loginLogo.png" alt="bg" class="login_logo">
+	</div>
+	<div class="right">
+		<h2 class="header">教师教学工作量统计系统</h2>
+		<div class="input_number">
+			<span>账号：</span>
+			<input type="text" id="TeacherNumber" value="" placeholder="请输入工号">
+		</div>
+		<button id="Go">Go</button>
+	</div>
+</div>
+<div class="footer">
+	Copyright &copy;2019 ForNa Work Team All Rights Reserved
 </div>
 <script type="text/javascript" src="TeacherSum/js/jquery-1.8.0.min.js"></script>
 <script type="text/javascript" src="TeacherSum/js/TeacherNumber.js"></script>
