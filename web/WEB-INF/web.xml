@@ -50,12 +50,4 @@
     <servlet-name>download</servlet-name>
     <url-pattern>/servlet/download</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <servlet-name>Data3</servlet-name>
-    <servlet-class>servlet.action.Data3</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Data3</servlet-name>
-    <url-pattern>/api/Data3</url-pattern>
-  </servlet-mapping>
 </web-app>
